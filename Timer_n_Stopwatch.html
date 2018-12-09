@@ -1,0 +1,220 @@
+<html>
+
+<head>
+    <title>Count down</title>
+    <style>
+        #counter{
+            font-weight: bold;
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            color:green;
+            font-size: 300px;
+        }
+        .timer{
+            font-weight: bold;
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            color:red;
+            font-size: 300px;
+        }
+        .bg_yellow {
+            color:yellow;
+        }
+        .tinytext {
+            font-weight: lighter;
+            color: whit;
+            font-size: 2px;
+        }
+        .green {
+            background-color: green;
+            border: none;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 12px;
+        }
+        .red {
+            background-color: red;
+            border: none;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 12px;
+        }
+        .purple {
+            background-color: purple; 
+            border: none;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 12px;
+        }
+        .gray {
+            background-color: gray; 
+            border: none;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 12px;
+        }
+    </style>
+    <script>
+        function reloadMe() {
+            location.reload();
+        }
+
+        function countdown(minutes) {
+            var seconds = 60;
+            var mins = minutes
+            function tick() {
+                //This script expects an element with an ID = "counter". You can change that to what ever you want. 
+                var counter = document.getElementById("counter");
+                var current_minutes = mins - 1
+                seconds--;
+                counter.innerHTML = current_minutes.toString() + ":" + (seconds < 10 ? "0" : "") + String(seconds);
+                if (seconds >= 0) {
+                    setTimeout(tick, 1000);
+                } else {
+                    if (mins <= 1) {
+                        counter.innerHTML = "FINISH";
+                        document.getElementById("res").style.display = "";
+                        startWatch();
+                    } else {
+                        countdown(mins - 1);
+                    }
+                }
+            }
+            tick();
+        }
+    </script>
+</head>
+
+<body>
+    Set the timer<input type="button" value="1 Minute" onclick="countdown(1);">
+    <input type="button" value="2 Minute" onclick="countdown(2);">
+    <input type="button" value="5 Minute" onclick="countdown(5);">
+    <input type="button" value="10 Minutes" onclick="countdown(10);">
+    <input type="button" value="15 Minutes" onclick="countdown(15);" class="gray">
+    <input type="button" value="20 Minutes" onclick="countdown(20);" class="green">
+    <input type="button" value="25 Minutes" onclick="countdown(25);">
+    <input type="button" value="30 Minutes" onclick="countdown(30);">
+    <input type="button" value="35 Minutes" onclick="countdown(35);" class="purple">
+    <input type="button" value="40 Minutes" onclick="countdown(40);">
+    <input type="button" value="45 Minutes" onclick="countdown(45);">
+    <input type="button" value="50 Minutes" onclick="countdown(50);">
+    <input type="button" value="55 Minutes" onclick="countdown(55);">
+    <input type="button" value="60 Minutes" onclick="countdown(60);">
+    <input type="button" value="65 Minutes" onclick="countdown(65);">
+    <input type="button" value="70 Minutes" onclick="countdown(70);">
+    <input type="button" value="75 Minutes" onclick="countdown(75);">
+    <input type="button" value="80 Minutes" onclick="countdown(80);">
+    <input type="button" value="85 Minutes" onclick="countdown(85);">
+    <input type="button" value="90 Minutes" onclick="countdown(90);">
+    <input type="button" value="95 Minutes" onclick="countdown(95);">
+    <input type="button" value="100 Minutes" onclick="countdown(100);">
+    <input type="button" value="105 Minutes" onclick="countdown(105);">
+    <input type="button" value="110 Minutes" onclick="countdown(110);">
+    <input type="button" value="115 Minutes" onclick="countdown(115);">
+    <input type="button" value="Stop" onclick="reloadMe();" class="red">
+    Stop watch controls :
+    <input type="button" onclick="startWatch()" value="START" />
+    <input type="button" onclick="stopWatch()" value="STOP" />
+    <input type="button" onclick="resetWatch()" value="ZERO" />
+     <hr>
+
+    <div id="counter"></div>
+    <hr>
+    <div id="res" class="timer" style="display :none"><span id="min">0</span> : <span id="sec">00</span> <span id="msec"
+            class="tinytext">: 000</span></div>
+
+    <script type="text/javascript">
+        var timer = null;
+        var min_txt = document.getElementById("min");
+        var min = Number(min_txt.innerHTML);
+        var sec_txt = document.getElementById("sec");
+        var sec = Number(sec_txt.innerHTML);
+        var msec_txt = document.getElementById("msec");
+        var msec = Number(msec_txt.innerHTML);
+        function stopTimeMilliseconds(timer) {
+            if (timer) {
+                clearInterval(timer);
+                return timer;
+            }
+            else return timer;
+        }
+        function startTimeMilliseconds() {
+            var currDate = new Date();
+            return currDate.getTime();
+        }
+        function getElapsedTimeMilliseconds(startMilliseconds) {
+            if (startMilliseconds > 0) {
+                var currDate = new Date();
+                elapsedMilliseconds = (currDate.getTime() - startMilliseconds);
+                return elapsedMilliseconds;
+            }
+            else {
+                return elapsedMilliseconds = 0;
+            }
+        }
+        function startWatch() {
+            // START TIMER
+            timer = stopTimeMilliseconds(timer);
+            var startMilliseconds = startTimeMilliseconds();
+            timer = setInterval(function () {
+                var elapsedMilliseconds = getElapsedTimeMilliseconds(startMilliseconds);
+                if (msec < 10) {
+                    msec_txt.innerHTML = "00" + msec;
+                }
+                else if (msec < 100) {
+                    msec_txt.innerHTML = "0" + msec;
+                }
+                else {
+                    msec_txt.innerHTML = msec;
+                }
+                if (sec < 10) {
+                    sec_txt.innerHTML = "0" + sec;
+                }
+                else {
+                    sec_txt.innerHTML = sec;
+                }
+                min_txt.innerHTML = min;
+                msec = elapsedMilliseconds;
+                if (min >= 59 && sec >= 59 && msec > 900) {
+                    timer = stopTimeMilliseconds(timer);
+                    return true;
+                }
+                if (sec > 59) {
+                    sec = 0;
+                    min++;
+                }
+                if (msec > 999) {
+                    msec = 0;
+                    sec++;
+                    startWatch();
+                }
+            }, 10);
+        }
+        function stopWatch() {
+            // STOP TIMER
+            timer = stopTimeMilliseconds(timer);
+            return true;
+        }
+        function resetWatch() {
+            // REZERO TIMER
+            timer = stopTimeMilliseconds(timer);
+            msec_txt.innerHTML = "000";
+            msec = 0;
+            sec_txt.innerHTML = "00";
+            sec = 0;
+            min_txt.innerHTML = "0";
+            min = 0;
+            return true;
+        }
+    </script>
+</body>
+
+</html>
