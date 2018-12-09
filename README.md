@@ -1,4 +1,5 @@
-# TimerandStopWatch
+# Timer and StopWatch Utility
+
 This is a javascript based timer and stopwatch utility.
 
 The page has following two options -
