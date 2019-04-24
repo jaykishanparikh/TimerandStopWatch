@@ -8,14 +8,14 @@
             font-family: Arial, Helvetica, sans-serif;
             text-align: center;
             color:green;
-            font-size: 300px;
+            font-size: 350px;
         }
         .timer{
             font-weight: bold;
             font-family: Arial, Helvetica, sans-serif;
             text-align: center;
             color:red;
-            font-size: 300px;
+            font-size: 350px;
         }
         .bg_yellow {
             color:yellow;
@@ -76,7 +76,7 @@
 			color: green;
             text-decoration: none;
             display: inline-block;
-            font-size: 500px;
+            font-size: 450px;
 			margin-left: 75;
 			margin-top : 175;
 		}
@@ -125,47 +125,65 @@
             }
             tick();
         }
+
+        function showHidePanel () {
+            var x = document.getElementById("controlpanel");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        }
     </script>
 </head>
 
 <body>
-    <input type="button" value="1 m" onclick="countdown(1);">
-    <input type="button" value="2 m" onclick="countdown(2);">
-    <input type="button" value="5 m" onclick="countdown(5);">
-    <input type="button" value="10 m" onclick="countdown(10);">
-    <input type="button" value="15 m" onclick="countdown(15);" class="gray">
-    <input type="button" value="20 m" onclick="countdown(20);" class="green">
-    <input type="button" value="25 m" onclick="countdown(25);">
-    <input type="button" value="30 m" onclick="countdown(30);">
-    <input type="button" value="35 m" onclick="countdown(35);" class="purple">
-    <input type="button" value="40 m" onclick="countdown(40);">
-    <input type="button" value="45 m" onclick="countdown(45);">
-    <input type="button" value="50 m" onclick="countdown(50);" class="blue">
-    <input type="button" value="55 m" onclick="countdown(55);">
-    <input type="button" value="60 m" onclick="countdown(60);">
-    <input type="button" value="65 m" onclick="countdown(65);">
-    <input type="button" value="70 m" onclick="countdown(70);">
-    <input type="button" value="75 m" onclick="countdown(75);">
-    <input type="button" value="80 m" onclick="countdown(80);">
-    <input type="button" value="85 m" onclick="countdown(85);">
-    <input type="button" value="90 m" onclick="countdown(90);">
-    <input type="button" value="95 m" onclick="countdown(95);">
-    <input type="button" value="100 m" onclick="countdown(100);">
-    <input type="button" value="105 m" onclick="countdown(105);">
-    <input type="button" value="110 m" onclick="countdown(110);">
-    <input type="button" value="115 m" onclick="countdown(115);">
-    <input type="button" value="Stop" onclick="reloadMe();" class="red">
+    <div id="controlpanel" class="controlpanel">
+        <input type="button" value="1 m" onclick="countdown(1);">
+        <input type="button" value="2 m" onclick="countdown(2);">
+        <input type="button" value="5 m" onclick="countdown(5);">
+        <input type="button" value="10 m" onclick="countdown(10);">
+        <input type="button" value="15 m" onclick="countdown(15);" class="gray">
+        <input type="button" value="20 m" onclick="countdown(20);" class="green">
+        <input type="button" value="25 m" onclick="countdown(25);">
+        <input type="button" value="30 m" onclick="countdown(30);">
+        <input type="button" value="35 m" onclick="countdown(35);" class="purple">
+        <input type="button" value="40 m" onclick="countdown(40);">
+        <input type="button" value="45 m" onclick="countdown(45);">
+        <input type="button" value="50 m" onclick="countdown(50);" class="blue">
+        <input type="button" value="55 m" onclick="countdown(55);">
+        <input type="button" value="60 m" onclick="countdown(60);">
+        <input type="button" value="65 m" onclick="countdown(65);">
+        <input type="button" value="70 m" onclick="countdown(70);">
+        <input type="button" value="75 m" onclick="countdown(75);">
+        <input type="button" value="80 m" onclick="countdown(80);">
+        <input type="button" value="85 m" onclick="countdown(85);">
+        <input type="button" value="90 m" onclick="countdown(90);">
+        <input type="button" value="95 m" onclick="countdown(95);">
+        <input type="button" value="100 m" onclick="countdown(100);">
+        <input type="button" value="105 m" onclick="countdown(105);">
+        <input type="button" value="110 m" onclick="countdown(110);">
+        <input type="button" value="115 m" onclick="countdown(115);">
+        <input type="button" value="120 m" onclick="countdown(120);">
+        <input type="button" value="125 m" onclick="countdown(125);">
+        <input type="button" value="130 m" onclick="countdown(130);">
+        <input type="button" value="135 m" onclick="countdown(135);">
+        <input type="button" value="140 m" onclick="countdown(140);">
+        <input type="button" value="145 m" onclick="countdown(145);">
+        <input type="button" value="150 m" onclick="countdown(150);">
+        <input type="button" value="155 m" onclick="countdown(155);">
+        <input type="button" value="Stop" onclick="reloadMe();" class="red">
+        <input type="button" onclick="startTime()" value="clock only" />
+    </div>
+    <input type="button" value="<" onclick="showHidePanel();" class="red">
 	<!--
     Stop watch controls :
     <input type="button" onclick="startWatch()" value="START" />
     <input type="button" onclick="stopWatch()" value="STOP" />
     <input type="button" onclick="resetWatch()" value="ZERO" />
-	-->
-    <input type="button" onclick="startTime()" value="CLOCK ONLY" />
-     <hr>
+	-->    
 
-    <div id="counter"></div>
-    <hr>
+    <div id="counter"></div>    
     <div id="res" class="timer" style="display :none"><span id="min">0</span> : <span id="sec">00</span> <span id="msec"
             class="tinytext">: 000</span></div>
 	
